@@ -1,0 +1,1146 @@
+{
+  "generated_at": "2026-09-29T06:26:27+00:00",
+  "dataset": {
+    "total_records": 69987,
+    "positive_samples": 6285,
+    "negative_samples": 63702,
+    "readmission_rate_percent": 8.98,
+    "total_features": 31
+  },
+  "split": {
+    "train": 55989,
+    "test": 13998,
+    "features": 154
+  },
+  "hospitals": [
+    {
+      "hospital_id": "Hospital_A",
+      "profile": "Urban academic medical center",
+      "total_samples": 17198,
+      "positive_samples": 1910,
+      "negative_samples": 15288,
+      "readmission_rate_pct": 11.11
+    },
+    {
+      "hospital_id": "Hospital_B",
+      "profile": "Suburban community hospital",
+      "total_samples": 14966,
+      "positive_samples": 1207,
+      "negative_samples": 13759,
+      "readmission_rate_pct": 8.06
+    },
+    {
+      "hospital_id": "Hospital_C",
+      "profile": "Rural regional clinic",
+      "total_samples": 8556,
+      "positive_samples": 402,
+      "negative_samples": 8154,
+      "readmission_rate_pct": 4.7
+    },
+    {
+      "hospital_id": "Hospital_D",
+      "profile": "Specialist diabetes institute",
+      "total_samples": 9260,
+      "positive_samples": 1106,
+      "negative_samples": 8154,
+      "readmission_rate_pct": 11.94
+    },
+    {
+      "hospital_id": "Hospital_E",
+      "profile": "Veterans medical center",
+      "total_samples": 6009,
+      "positive_samples": 403,
+      "negative_samples": 5606,
+      "readmission_rate_pct": 6.71
+    }
+  ],
+  "models": {
+    "centralized_lr": {
+      "accuracy": 0.6664,
+      "precision": 0.1398,
+      "recall": 0.5267,
+      "f1": 0.2209,
+      "roc_auc": 0.6493,
+      "pr_auc": 0.1709,
+      "specificity": 0.6802,
+      "brier": 0.2277,
+      "confusion_matrix": {
+        "tn": 8666,
+        "fp": 4075,
+        "fn": 595,
+        "tp": 662
+      },
+      "threshold": 0.5
+    },
+    "centralized_rf": {
+      "accuracy": 0.6479,
+      "precision": 0.1359,
+      "recall": 0.5449,
+      "f1": 0.2175,
+      "roc_auc": 0.6484,
+      "pr_auc": 0.1716,
+      "specificity": 0.6581,
+      "brier": 0.2312,
+      "confusion_matrix": {
+        "tn": 8385,
+        "fp": 4356,
+        "fn": 572,
+        "tp": 685
+      },
+      "threshold": 0.5
+    },
+    "fedavg": {
+      "accuracy": 0.6625,
+      "precision": 0.1391,
+      "recall": 0.5314,
+      "f1": 0.2204,
+      "roc_auc": 0.6472,
+      "pr_auc": 0.1676,
+      "specificity": 0.6754,
+      "brier": 0.2293,
+      "confusion_matrix": {
+        "tn": 8605,
+        "fp": 4136,
+        "fn": 589,
+        "tp": 668
+      },
+      "threshold": 0.5
+    },
+    "fedprox": {
+      "accuracy": 0.653,
+      "precision": 0.1385,
+      "recall": 0.5489,
+      "f1": 0.2212,
+      "roc_auc": 0.6461,
+      "pr_auc": 0.1662,
+      "specificity": 0.6632,
+      "brier": 0.232,
+      "confusion_matrix": {
+        "tn": 8450,
+        "fp": 4291,
+        "fn": 567,
+        "tp": 690
+      },
+      "threshold": 0.5
+    },
+    "dp_fedavg": {
+      "accuracy": 0.5637,
+      "precision": 0.126,
+      "recall": 0.65,
+      "f1": 0.2111,
+      "roc_auc": 0.6439,
+      "pr_auc": 0.166,
+      "specificity": 0.5551,
+      "brier": 0.2595,
+      "confusion_matrix": {
+        "tn": 7073,
+        "fp": 5668,
+        "fn": 440,
+        "tp": 817
+      },
+      "threshold": 0.5
+    }
+  },
+  "fl_runs": {
+    "fedavg": {
+      "label": "FedAvg",
+      "config": {
+        "rounds": 8,
+        "local_epochs": 3,
+        "learning_rate": 0.05,
+        "batch_size": 64,
+        "l2_reg": 0.0001,
+        "algorithm": "fedavg",
+        "prox_mu": 0.0,
+        "clip_norm": 0.0,
+        "noise_multiplier": 0.0,
+        "seed": 42
+      },
+      "history": [
+        {
+          "round": 1,
+          "total_samples": 55989,
+          "contributions": {
+            "Hospital_A": 17198,
+            "Hospital_B": 14966,
+            "Hospital_C": 8556,
+            "Hospital_D": 9260,
+            "Hospital_E": 6009
+          },
+          "update_norms": {
+            "Hospital_A": 1.0644,
+            "Hospital_B": 1.136,
+            "Hospital_C": 0.8999,
+            "Hospital_D": 0.9657,
+            "Hospital_E": 0.8114
+          },
+          "metrics": {
+            "accuracy": 0.5721,
+            "precision": 0.1262,
+            "recall": 0.6356,
+            "f1": 0.2106,
+            "roc_auc": 0.6403,
+            "pr_auc": 0.1591,
+            "specificity": 0.5658,
+            "brier": 0.2539,
+            "confusion_matrix": {
+              "tn": 7209,
+              "fp": 5532,
+              "fn": 458,
+              "tp": 799
+            },
+            "threshold": 0.5
+          }
+        },
+        {
+          "round": 2,
+          "total_samples": 55989,
+          "contributions": {
+            "Hospital_A": 17198,
+            "Hospital_B": 14966,
+            "Hospital_C": 8556,
+            "Hospital_D": 9260,
+            "Hospital_E": 6009
+          },
+          "update_norms": {
+            "Hospital_A": 0.6104,
+            "Hospital_B": 0.6559,
+            "Hospital_C": 0.6371,
+            "Hospital_D": 0.609,
+            "Hospital_E": 0.5962
+          },
+          "metrics": {
+            "accuracy": 0.6448,
+            "precision": 0.1364,
+            "recall": 0.5545,
+            "f1": 0.219,
+            "roc_auc": 0.6456,
+            "pr_auc": 0.163,
+            "specificity": 0.6537,
+            "brier": 0.231,
+            "confusion_matrix": {
+              "tn": 8329,
+              "fp": 4412,
+              "fn": 560,
+              "tp": 697
+            },
+            "threshold": 0.5
+          }
+        },
+        {
+          "round": 3,
+          "total_samples": 55989,
+          "contributions": {
+            "Hospital_A": 17198,
+            "Hospital_B": 14966,
+            "Hospital_C": 8556,
+            "Hospital_D": 9260,
+            "Hospital_E": 6009
+          },
+          "update_norms": {
+            "Hospital_A": 0.5159,
+            "Hospital_B": 0.5509,
+            "Hospital_C": 0.6062,
+            "Hospital_D": 0.6012,
+            "Hospital_E": 0.5769
+          },
+          "metrics": {
+            "accuracy": 0.7042,
+            "precision": 0.1459,
+            "recall": 0.4726,
+            "f1": 0.223,
+            "roc_auc": 0.6455,
+            "pr_auc": 0.1655,
+            "specificity": 0.7271,
+            "brier": 0.2107,
+            "confusion_matrix": {
+              "tn": 9264,
+              "fp": 3477,
+              "fn": 663,
+              "tp": 594
+            },
+            "threshold": 0.5
+          }
+        },
+        {
+          "round": 4,
+          "total_samples": 55989,
+          "contributions": {
+            "Hospital_A": 17198,
+            "Hospital_B": 14966,
+            "Hospital_C": 8556,
+            "Hospital_D": 9260,
+            "Hospital_E": 6009
+          },
+          "update_norms": {
+            "Hospital_A": 0.495,
+            "Hospital_B": 0.5123,
+            "Hospital_C": 0.6004,
+            "Hospital_D": 0.5889,
+            "Hospital_E": 0.5571
+          },
+          "metrics": {
+            "accuracy": 0.6813,
+            "precision": 0.1416,
+            "recall": 0.5036,
+            "f1": 0.2211,
+            "roc_auc": 0.6469,
+            "pr_auc": 0.1657,
+            "specificity": 0.6988,
+            "brier": 0.2182,
+            "confusion_matrix": {
+              "tn": 8904,
+              "fp": 3837,
+              "fn": 624,
+              "tp": 633
+            },
+            "threshold": 0.5
+          }
+        },
+        {
+          "round": 5,
+          "total_samples": 55989,
+          "contributions": {
+            "Hospital_A": 17198,
+            "Hospital_B": 14966,
+            "Hospital_C": 8556,
+            "Hospital_D": 9260,
+            "Hospital_E": 6009
+          },
+          "update_norms": {
+            "Hospital_A": 0.4966,
+            "Hospital_B": 0.5004,
+            "Hospital_C": 0.6025,
+            "Hospital_D": 0.5706,
+            "Hospital_E": 0.5498
+          },
+          "metrics": {
+            "accuracy": 0.6594,
+            "precision": 0.1406,
+            "recall": 0.5465,
+            "f1": 0.2237,
+            "roc_auc": 0.6472,
+            "pr_auc": 0.1671,
+            "specificity": 0.6705,
+            "brier": 0.2285,
+            "confusion_matrix": {
+              "tn": 8543,
+              "fp": 4198,
+              "fn": 570,
+              "tp": 687
+            },
+            "threshold": 0.5
+          }
+        },
+        {
+          "round": 6,
+          "total_samples": 55989,
+          "contributions": {
+            "Hospital_A": 17198,
+            "Hospital_B": 14966,
+            "Hospital_C": 8556,
+            "Hospital_D": 9260,
+            "Hospital_E": 6009
+          },
+          "update_norms": {
+            "Hospital_A": 0.4767,
+            "Hospital_B": 0.4851,
+            "Hospital_C": 0.6305,
+            "Hospital_D": 0.5706,
+            "Hospital_E": 0.5643
+          },
+          "metrics": {
+            "accuracy": 0.7064,
+            "precision": 0.147,
+            "recall": 0.4726,
+            "f1": 0.2242,
+            "roc_auc": 0.6481,
+            "pr_auc": 0.1659,
+            "specificity": 0.7295,
+            "brier": 0.2094,
+            "confusion_matrix": {
+              "tn": 9294,
+              "fp": 3447,
+              "fn": 663,
+              "tp": 594
+            },
+            "threshold": 0.5
+          }
+        },
+        {
+          "round": 7,
+          "total_samples": 55989,
+          "contributions": {
+            "Hospital_A": 17198,
+            "Hospital_B": 14966,
+            "Hospital_C": 8556,
+            "Hospital_D": 9260,
+            "Hospital_E": 6009
+          },
+          "update_norms": {
+            "Hospital_A": 0.4874,
+            "Hospital_B": 0.5004,
+            "Hospital_C": 0.5745,
+            "Hospital_D": 0.568,
+            "Hospital_E": 0.5581
+          },
+          "metrics": {
+            "accuracy": 0.6034,
+            "precision": 0.132,
+            "recall": 0.6126,
+            "f1": 0.2171,
+            "roc_auc": 0.6477,
+            "pr_auc": 0.1661,
+            "specificity": 0.6025,
+            "brier": 0.2471,
+            "confusion_matrix": {
+              "tn": 7676,
+              "fp": 5065,
+              "fn": 487,
+              "tp": 770
+            },
+            "threshold": 0.5
+          }
+        },
+        {
+          "round": 8,
+          "total_samples": 55989,
+          "contributions": {
+            "Hospital_A": 17198,
+            "Hospital_B": 14966,
+            "Hospital_C": 8556,
+            "Hospital_D": 9260,
+            "Hospital_E": 6009
+          },
+          "update_norms": {
+            "Hospital_A": 0.4551,
+            "Hospital_B": 0.5064,
+            "Hospital_C": 0.6258,
+            "Hospital_D": 0.5758,
+            "Hospital_E": 0.5484
+          },
+          "metrics": {
+            "accuracy": 0.6625,
+            "precision": 0.1391,
+            "recall": 0.5314,
+            "f1": 0.2204,
+            "roc_auc": 0.6472,
+            "pr_auc": 0.1676,
+            "specificity": 0.6754,
+            "brier": 0.2293,
+            "confusion_matrix": {
+              "tn": 8605,
+              "fp": 4136,
+              "fn": 589,
+              "tp": 668
+            },
+            "threshold": 0.5
+          }
+        }
+      ]
+    },
+    "fedprox": {
+      "label": "FedProx",
+      "config": {
+        "rounds": 8,
+        "local_epochs": 3,
+        "learning_rate": 0.05,
+        "batch_size": 64,
+        "l2_reg": 0.0001,
+        "algorithm": "fedprox",
+        "prox_mu": 0.05,
+        "clip_norm": 0.0,
+        "noise_multiplier": 0.0,
+        "seed": 42
+      },
+      "history": [
+        {
+          "round": 1,
+          "total_samples": 55989,
+          "contributions": {
+            "Hospital_A": 17198,
+            "Hospital_B": 14966,
+            "Hospital_C": 8556,
+            "Hospital_D": 9260,
+            "Hospital_E": 6009
+          },
+          "update_norms": {
+            "Hospital_A": 0.6641,
+            "Hospital_B": 0.7399,
+            "Hospital_C": 0.6563,
+            "Hospital_D": 0.7086,
+            "Hospital_E": 0.633
+          },
+          "metrics": {
+            "accuracy": 0.5436,
+            "precision": 0.1232,
+            "recall": 0.6675,
+            "f1": 0.208,
+            "roc_auc": 0.6364,
+            "pr_auc": 0.1549,
+            "specificity": 0.5314,
+            "brier": 0.2585,
+            "confusion_matrix": {
+              "tn": 6770,
+              "fp": 5971,
+              "fn": 418,
+              "tp": 839
+            },
+            "threshold": 0.5
+          }
+        },
+        {
+          "round": 2,
+          "total_samples": 55989,
+          "contributions": {
+            "Hospital_A": 17198,
+            "Hospital_B": 14966,
+            "Hospital_C": 8556,
+            "Hospital_D": 9260,
+            "Hospital_E": 6009
+          },
+          "update_norms": {
+            "Hospital_A": 0.4023,
+            "Hospital_B": 0.4716,
+            "Hospital_C": 0.4814,
+            "Hospital_D": 0.4552,
+            "Hospital_E": 0.478
+          },
+          "metrics": {
+            "accuracy": 0.634,
+            "precision": 0.135,
+            "recall": 0.5688,
+            "f1": 0.2182,
+            "roc_auc": 0.6418,
+            "pr_auc": 0.159,
+            "specificity": 0.6405,
+            "brier": 0.2338,
+            "confusion_matrix": {
+              "tn": 8160,
+              "fp": 4581,
+              "fn": 542,
+              "tp": 715
+            },
+            "threshold": 0.5
+          }
+        },
+        {
+          "round": 3,
+          "total_samples": 55989,
+          "contributions": {
+            "Hospital_A": 17198,
+            "Hospital_B": 14966,
+            "Hospital_C": 8556,
+            "Hospital_D": 9260,
+            "Hospital_E": 6009
+          },
+          "update_norms": {
+            "Hospital_A": 0.3338,
+            "Hospital_B": 0.3941,
+            "Hospital_C": 0.4473,
+            "Hospital_D": 0.443,
+            "Hospital_E": 0.4507
+          },
+          "metrics": {
+            "accuracy": 0.6963,
+            "precision": 0.1446,
+            "recall": 0.4845,
+            "f1": 0.2227,
+            "roc_auc": 0.6428,
+            "pr_auc": 0.1621,
+            "specificity": 0.7172,
+            "brier": 0.2126,
+            "confusion_matrix": {
+              "tn": 9138,
+              "fp": 3603,
+              "fn": 648,
+              "tp": 609
+            },
+            "threshold": 0.5
+          }
+        },
+        {
+          "round": 4,
+          "total_samples": 55989,
+          "contributions": {
+            "Hospital_A": 17198,
+            "Hospital_B": 14966,
+            "Hospital_C": 8556,
+            "Hospital_D": 9260,
+            "Hospital_E": 6009
+          },
+          "update_norms": {
+            "Hospital_A": 0.3238,
+            "Hospital_B": 0.3494,
+            "Hospital_C": 0.4411,
+            "Hospital_D": 0.4291,
+            "Hospital_E": 0.4266
+          },
+          "metrics": {
+            "accuracy": 0.6777,
+            "precision": 0.1413,
+            "recall": 0.5099,
+            "f1": 0.2213,
+            "roc_auc": 0.6444,
+            "pr_auc": 0.1632,
+            "specificity": 0.6943,
+            "brier": 0.2187,
+            "confusion_matrix": {
+              "tn": 8846,
+              "fp": 3895,
+              "fn": 616,
+              "tp": 641
+            },
+            "threshold": 0.5
+          }
+        },
+        {
+          "round": 5,
+          "total_samples": 55989,
+          "contributions": {
+            "Hospital_A": 17198,
+            "Hospital_B": 14966,
+            "Hospital_C": 8556,
+            "Hospital_D": 9260,
+            "Hospital_E": 6009
+          },
+          "update_norms": {
+            "Hospital_A": 0.3434,
+            "Hospital_B": 0.3332,
+            "Hospital_C": 0.4389,
+            "Hospital_D": 0.416,
+            "Hospital_E": 0.4156
+          },
+          "metrics": {
+            "accuracy": 0.6552,
+            "precision": 0.1384,
+            "recall": 0.5434,
+            "f1": 0.2206,
+            "roc_auc": 0.6454,
+            "pr_auc": 0.1651,
+            "specificity": 0.6662,
+            "brier": 0.2291,
+            "confusion_matrix": {
+              "tn": 8488,
+              "fp": 4253,
+              "fn": 574,
+              "tp": 683
+            },
+            "threshold": 0.5
+          }
+        },
+        {
+          "round": 6,
+          "total_samples": 55989,
+          "contributions": {
+            "Hospital_A": 17198,
+            "Hospital_B": 14966,
+            "Hospital_C": 8556,
+            "Hospital_D": 9260,
+            "Hospital_E": 6009
+          },
+          "update_norms": {
+            "Hospital_A": 0.3165,
+            "Hospital_B": 0.3233,
+            "Hospital_C": 0.4646,
+            "Hospital_D": 0.4062,
+            "Hospital_E": 0.4318
+          },
+          "metrics": {
+            "accuracy": 0.6995,
+            "precision": 0.1437,
+            "recall": 0.4733,
+            "f1": 0.2205,
+            "roc_auc": 0.6464,
+            "pr_auc": 0.1644,
+            "specificity": 0.7218,
+            "brier": 0.2106,
+            "confusion_matrix": {
+              "tn": 9196,
+              "fp": 3545,
+              "fn": 662,
+              "tp": 595
+            },
+            "threshold": 0.5
+          }
+        },
+        {
+          "round": 7,
+          "total_samples": 55989,
+          "contributions": {
+            "Hospital_A": 17198,
+            "Hospital_B": 14966,
+            "Hospital_C": 8556,
+            "Hospital_D": 9260,
+            "Hospital_E": 6009
+          },
+          "update_norms": {
+            "Hospital_A": 0.341,
+            "Hospital_B": 0.3371,
+            "Hospital_C": 0.3934,
+            "Hospital_D": 0.4078,
+            "Hospital_E": 0.4222
+          },
+          "metrics": {
+            "accuracy": 0.5968,
+            "precision": 0.131,
+            "recall": 0.6197,
+            "f1": 0.2163,
+            "roc_auc": 0.6466,
+            "pr_auc": 0.1649,
+            "specificity": 0.5945,
+            "brier": 0.2491,
+            "confusion_matrix": {
+              "tn": 7575,
+              "fp": 5166,
+              "fn": 478,
+              "tp": 779
+            },
+            "threshold": 0.5
+          }
+        },
+        {
+          "round": 8,
+          "total_samples": 55989,
+          "contributions": {
+            "Hospital_A": 17198,
+            "Hospital_B": 14966,
+            "Hospital_C": 8556,
+            "Hospital_D": 9260,
+            "Hospital_E": 6009
+          },
+          "update_norms": {
+            "Hospital_A": 0.3013,
+            "Hospital_B": 0.335,
+            "Hospital_C": 0.4693,
+            "Hospital_D": 0.4074,
+            "Hospital_E": 0.4148
+          },
+          "metrics": {
+            "accuracy": 0.653,
+            "precision": 0.1385,
+            "recall": 0.5489,
+            "f1": 0.2212,
+            "roc_auc": 0.6461,
+            "pr_auc": 0.1662,
+            "specificity": 0.6632,
+            "brier": 0.232,
+            "confusion_matrix": {
+              "tn": 8450,
+              "fp": 4291,
+              "fn": 567,
+              "tp": 690
+            },
+            "threshold": 0.5
+          }
+        }
+      ]
+    },
+    "dp_fedavg": {
+      "label": "DP-FedAvg",
+      "config": {
+        "rounds": 8,
+        "local_epochs": 3,
+        "learning_rate": 0.05,
+        "batch_size": 64,
+        "l2_reg": 0.0001,
+        "algorithm": "fedavg",
+        "prox_mu": 0.0,
+        "clip_norm": 1.0,
+        "noise_multiplier": 0.1,
+        "seed": 42
+      },
+      "history": [
+        {
+          "round": 1,
+          "total_samples": 55989,
+          "contributions": {
+            "Hospital_A": 17198,
+            "Hospital_B": 14966,
+            "Hospital_C": 8556,
+            "Hospital_D": 9260,
+            "Hospital_E": 6009
+          },
+          "update_norms": {
+            "Hospital_A": 1.0644,
+            "Hospital_B": 1.136,
+            "Hospital_C": 0.8999,
+            "Hospital_D": 0.9657,
+            "Hospital_E": 0.8114
+          },
+          "metrics": {
+            "accuracy": 0.4999,
+            "precision": 0.118,
+            "recall": 0.7056,
+            "f1": 0.2022,
+            "roc_auc": 0.6346,
+            "pr_auc": 0.1593,
+            "specificity": 0.4796,
+            "brier": 0.2722,
+            "confusion_matrix": {
+              "tn": 6111,
+              "fp": 6630,
+              "fn": 370,
+              "tp": 887
+            },
+            "threshold": 0.5
+          }
+        },
+        {
+          "round": 2,
+          "total_samples": 55989,
+          "contributions": {
+            "Hospital_A": 17198,
+            "Hospital_B": 14966,
+            "Hospital_C": 8556,
+            "Hospital_D": 9260,
+            "Hospital_E": 6009
+          },
+          "update_norms": {
+            "Hospital_A": 0.6695,
+            "Hospital_B": 0.6616,
+            "Hospital_C": 0.6679,
+            "Hospital_D": 0.6476,
+            "Hospital_E": 0.6251
+          },
+          "metrics": {
+            "accuracy": 0.6197,
+            "precision": 0.1337,
+            "recall": 0.5903,
+            "f1": 0.218,
+            "roc_auc": 0.6444,
+            "pr_auc": 0.1615,
+            "specificity": 0.6226,
+            "brier": 0.2383,
+            "confusion_matrix": {
+              "tn": 7933,
+              "fp": 4808,
+              "fn": 515,
+              "tp": 742
+            },
+            "threshold": 0.5
+          }
+        },
+        {
+          "round": 3,
+          "total_samples": 55989,
+          "contributions": {
+            "Hospital_A": 17198,
+            "Hospital_B": 14966,
+            "Hospital_C": 8556,
+            "Hospital_D": 9260,
+            "Hospital_E": 6009
+          },
+          "update_norms": {
+            "Hospital_A": 0.5728,
+            "Hospital_B": 0.5504,
+            "Hospital_C": 0.6253,
+            "Hospital_D": 0.622,
+            "Hospital_E": 0.5932
+          },
+          "metrics": {
+            "accuracy": 0.7262,
+            "precision": 0.1492,
+            "recall": 0.436,
+            "f1": 0.2224,
+            "roc_auc": 0.6447,
+            "pr_auc": 0.1626,
+            "specificity": 0.7548,
+            "brier": 0.2004,
+            "confusion_matrix": {
+              "tn": 9617,
+              "fp": 3124,
+              "fn": 709,
+              "tp": 548
+            },
+            "threshold": 0.5
+          }
+        },
+        {
+          "round": 4,
+          "total_samples": 55989,
+          "contributions": {
+            "Hospital_A": 17198,
+            "Hospital_B": 14966,
+            "Hospital_C": 8556,
+            "Hospital_D": 9260,
+            "Hospital_E": 6009
+          },
+          "update_norms": {
+            "Hospital_A": 0.5431,
+            "Hospital_B": 0.5548,
+            "Hospital_C": 0.6455,
+            "Hospital_D": 0.6019,
+            "Hospital_E": 0.5508
+          },
+          "metrics": {
+            "accuracy": 0.6787,
+            "precision": 0.1424,
+            "recall": 0.5131,
+            "f1": 0.2229,
+            "roc_auc": 0.6459,
+            "pr_auc": 0.1641,
+            "specificity": 0.695,
+            "brier": 0.2184,
+            "confusion_matrix": {
+              "tn": 8855,
+              "fp": 3886,
+              "fn": 612,
+              "tp": 645
+            },
+            "threshold": 0.5
+          }
+        },
+        {
+          "round": 5,
+          "total_samples": 55989,
+          "contributions": {
+            "Hospital_A": 17198,
+            "Hospital_B": 14966,
+            "Hospital_C": 8556,
+            "Hospital_D": 9260,
+            "Hospital_E": 6009
+          },
+          "update_norms": {
+            "Hospital_A": 0.5551,
+            "Hospital_B": 0.5225,
+            "Hospital_C": 0.6457,
+            "Hospital_D": 0.5878,
+            "Hospital_E": 0.5505
+          },
+          "metrics": {
+            "accuracy": 0.5854,
+            "precision": 0.1251,
+            "recall": 0.6038,
+            "f1": 0.2073,
+            "roc_auc": 0.6398,
+            "pr_auc": 0.1629,
+            "specificity": 0.5835,
+            "brier": 0.2488,
+            "confusion_matrix": {
+              "tn": 7435,
+              "fp": 5306,
+              "fn": 498,
+              "tp": 759
+            },
+            "threshold": 0.5
+          }
+        },
+        {
+          "round": 6,
+          "total_samples": 55989,
+          "contributions": {
+            "Hospital_A": 17198,
+            "Hospital_B": 14966,
+            "Hospital_C": 8556,
+            "Hospital_D": 9260,
+            "Hospital_E": 6009
+          },
+          "update_norms": {
+            "Hospital_A": 0.5547,
+            "Hospital_B": 0.5313,
+            "Hospital_C": 0.6615,
+            "Hospital_D": 0.6223,
+            "Hospital_E": 0.594
+          },
+          "metrics": {
+            "accuracy": 0.5154,
+            "precision": 0.1203,
+            "recall": 0.6961,
+            "f1": 0.2051,
+            "roc_auc": 0.6464,
+            "pr_auc": 0.1639,
+            "specificity": 0.4976,
+            "brier": 0.2739,
+            "confusion_matrix": {
+              "tn": 6340,
+              "fp": 6401,
+              "fn": 382,
+              "tp": 875
+            },
+            "threshold": 0.5
+          }
+        },
+        {
+          "round": 7,
+          "total_samples": 55989,
+          "contributions": {
+            "Hospital_A": 17198,
+            "Hospital_B": 14966,
+            "Hospital_C": 8556,
+            "Hospital_D": 9260,
+            "Hospital_E": 6009
+          },
+          "update_norms": {
+            "Hospital_A": 0.5084,
+            "Hospital_B": 0.5197,
+            "Hospital_C": 0.5921,
+            "Hospital_D": 0.5965,
+            "Hospital_E": 0.5858
+          },
+          "metrics": {
+            "accuracy": 0.6484,
+            "precision": 0.1358,
+            "recall": 0.5434,
+            "f1": 0.2173,
+            "roc_auc": 0.6441,
+            "pr_auc": 0.165,
+            "specificity": 0.6588,
+            "brier": 0.2331,
+            "confusion_matrix": {
+              "tn": 8394,
+              "fp": 4347,
+              "fn": 574,
+              "tp": 683
+            },
+            "threshold": 0.5
+          }
+        },
+        {
+          "round": 8,
+          "total_samples": 55989,
+          "contributions": {
+            "Hospital_A": 17198,
+            "Hospital_B": 14966,
+            "Hospital_C": 8556,
+            "Hospital_D": 9260,
+            "Hospital_E": 6009
+          },
+          "update_norms": {
+            "Hospital_A": 0.4971,
+            "Hospital_B": 0.5305,
+            "Hospital_C": 0.6666,
+            "Hospital_D": 0.6005,
+            "Hospital_E": 0.5502
+          },
+          "metrics": {
+            "accuracy": 0.5637,
+            "precision": 0.126,
+            "recall": 0.65,
+            "f1": 0.2111,
+            "roc_auc": 0.6439,
+            "pr_auc": 0.166,
+            "specificity": 0.5551,
+            "brier": 0.2595,
+            "confusion_matrix": {
+              "tn": 7073,
+              "fp": 5668,
+              "fn": 440,
+              "tp": 817
+            },
+            "threshold": 0.5
+          }
+        }
+      ]
+    }
+  },
+  "local_only": [
+    {
+      "hospital_id": "Hospital_A",
+      "metrics": {
+        "accuracy": 0.6571,
+        "precision": 0.1354,
+        "recall": 0.5235,
+        "f1": 0.2152,
+        "roc_auc": 0.6382,
+        "pr_auc": 0.162,
+        "specificity": 0.6703,
+        "brier": 0.2296,
+        "confusion_matrix": {
+          "tn": 8540,
+          "fp": 4201,
+          "fn": 599,
+          "tp": 658
+        },
+        "threshold": 0.5
+      }
+    },
+    {
+      "hospital_id": "Hospital_B",
+      "metrics": {
+        "accuracy": 0.6622,
+        "precision": 0.1375,
+        "recall": 0.5235,
+        "f1": 0.2177,
+        "roc_auc": 0.6415,
+        "pr_auc": 0.1671,
+        "specificity": 0.6759,
+        "brier": 0.2239,
+        "confusion_matrix": {
+          "tn": 8612,
+          "fp": 4129,
+          "fn": 599,
+          "tp": 658
+        },
+        "threshold": 0.5
+      }
+    },
+    {
+      "hospital_id": "Hospital_C",
+      "metrics": {
+        "accuracy": 0.6489,
+        "precision": 0.1269,
+        "recall": 0.4948,
+        "f1": 0.202,
+        "roc_auc": 0.6114,
+        "pr_auc": 0.1453,
+        "specificity": 0.6642,
+        "brier": 0.2252,
+        "confusion_matrix": {
+          "tn": 8462,
+          "fp": 4279,
+          "fn": 635,
+          "tp": 622
+        },
+        "threshold": 0.5
+      }
+    },
+    {
+      "hospital_id": "Hospital_D",
+      "metrics": {
+        "accuracy": 0.6554,
+        "precision": 0.1305,
+        "recall": 0.5012,
+        "f1": 0.2071,
+        "roc_auc": 0.6265,
+        "pr_auc": 0.1566,
+        "specificity": 0.6706,
+        "brier": 0.2262,
+        "confusion_matrix": {
+          "tn": 8544,
+          "fp": 4197,
+          "fn": 627,
+          "tp": 630
+        },
+        "threshold": 0.5
+      }
+    },
+    {
+      "hospital_id": "Hospital_E",
+      "metrics": {
+        "accuracy": 0.6612,
+        "precision": 0.1276,
+        "recall": 0.4749,
+        "f1": 0.2011,
+        "roc_auc": 0.6071,
+        "pr_auc": 0.1454,
+        "specificity": 0.6796,
+        "brier": 0.2231,
+        "confusion_matrix": {
+          "tn": 8659,
+          "fp": 4082,
+          "fn": 660,
+          "tp": 597
+        },
+        "threshold": 0.5
+      }
+    }
+  ],
+  "ledger": {
+    "blocks": 9,
+    "verified": true,
+    "message": "All 9 blocks verified.",
+    "head": "b3319261bac15cbc0e07364d1689f5279497fdf8e54d91c39497313d4fd41f5e"
+  },
+  "runtime_seconds": 8.87
+}
