@@ -100,7 +100,7 @@ src/
   pipeline.py          End-to-end experiment and artifact persistence
   charts.py            Plotly figures
 tests/                 Unit and integration tests (synthetic data)
-docs/                  Coursework report and presentation guide
+docs/                  Write-up, presentation guide and screenshots
 artifacts/             Generated results, models, ledger (created by run_experiment.py)
 ```
 
