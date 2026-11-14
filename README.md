@@ -1,5 +1,7 @@
 # SHAFLB: Secure Hospital Analytics with Federated Learning and Blockchain
 
+[![Tests](https://github.com/Aryxzing/SHAFLB/actions/workflows/tests.yml/badge.svg)](https://github.com/Aryxzing/SHAFLB/actions/workflows/tests.yml)
+
 Five hospitals jointly train a model that predicts **30-day readmission of diabetic patients**
 without sharing any patient records. Only model parameters leave a hospital, and every
 training round is written to a **tamper-evident, hash-chained audit ledger** that each
